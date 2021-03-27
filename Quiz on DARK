@@ -1,0 +1,52 @@
+var readlineSync=require('readline-sync');
+const chalk = require("chalk");
+var score =0;
+var userName = readlineSync.question(chalk.red("please give your name  "))
+console.log(chalk.black.bgGreen.bold.underline("Hey!!" +userName));
+console.log(chalk.yellow.bold("Watched DARK ?, buzzed? Let's check how well did you rembember lets get started then!!"));
+var readlineSync = require('readline-sync');
+
+
+function game(question,answer){
+    var userAnswer = readlineSync.question(question);
+    if(userAnswer.toUpperCase() === answer.toUpperCase()){
+    console.log(chalk.green("yay! you are right"));
+    score = score+1;
+	}
+	else
+	{
+		console.log(chalk.red("oops!you are wrong"));
+	}
+	console.log(chalk.green("current score:" , score));
+	console.log(".........");
+}
+
+var questions=[{
+	question :chalk.yellow("\n1.who invented time machine?\n"+chalk.green("\na.heldge doppler\nb.claudia tidemann\nc.johnas kahnwaldaks\nd.martha\n ")),
+	answer:"B"
+},
+{
+	question :chalk.yellow("\n2.In how many years does cycle takeplace?\n"+ 	chalk.green("\na.35\nb.33\nc.35\nd.37\n")),
+	answer:"B"
+},
+{
+  question :chalk.yellow("\n3.what is the name of place where this event takeplace?\n"+chalk.green("\na.winken\nb.winden\nc.hawkins\nd.spain\n ")),
+  answer:"B"
+},
+{
+  question :chalk.yellow("\n4.What is the important question?\n"+chalk.green("\na.not where but when\nb.not when but where\nc.not where but who\nd.none\n")),
+  answer:"A"
+},
+{
+  question:chalk.yellow("\n5.what is the name of claudia tidemann's dog?\n"+chalk.green("\na.gretchen\nb.snoppy\nc.puppy\nd.greten\n")),
+  answer:"A"
+}]
+
+for(i=0;i<questions.length;i++){
+   var currentQuestion=questions[i];
+   game(currentQuestion.question,currentQuestion.answer)   
+}
+console.log(chalk.green("\n YAY!! YAY!....Your final score is:" , score))
+console.log(chalk.yellow("\n I hope you enjoyed this game"))
+console.log(chalk.red("SEE YOU NEXT TIME!!"))
+
